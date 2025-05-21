@@ -14,8 +14,11 @@
   hardware.enableRedistributableFirmware = true;
 
   # Enables the Raspberry Pi 4 specific hardware modules
-  hardware.raspberry-pi."4".enable = true;
-
+  hardware.raspberry-pi."4".apply-overlays-dtmerge.enable = true;
+  hardware.deviceTree = {
+		enable = true; 
+		filter = "*rpi-4-*.dtb";
+	};
   networking.hostName = "rpi4";
   networking.networkmanager.enable = true;
 
